@@ -36,13 +36,15 @@ export function FitCall() {
                         className="flex flex-col items-center"
                     >
                         <div className="glass-card p-1 md:p-2 rounded-2xl bg-gradient-to-b from-[#FFFAF1]/10 to-transparent border border-[#FFFAF1]/5 mb-12 shadow-2xl">
-                            <Button
-                                size="lg"
-                                className="h-20 px-10 md:px-16 text-xl md:text-2xl font-black rounded-xl bg-[#D37B07] hover:bg-[#E8920F] text-[#0D1321] shadow-[0_10px_40px_rgba(211,123,7,0.3)] hover:shadow-[0_15px_50px_rgba(211,123,7,0.5)] transition-all duration-300 hover:scale-[1.02] uppercase tracking-wider flex items-center gap-4"
-                            >
-                                <Calendar className="w-6 h-6 md:w-8 md:h-8" />
-                                Book Your 15-Minute Fit Call
-                            </Button>
+                            <a href="https://api.leadconnectorhq.com/widget/bookings/15-minute-fit-call1" target="_blank" rel="noopener noreferrer" className="block">
+                                <Button
+                                    size="lg"
+                                    className="h-20 w-full px-10 md:px-16 text-xl md:text-2xl font-black rounded-xl bg-[#D37B07] hover:bg-[#E8920F] text-[#0D1321] shadow-[0_10px_40px_rgba(211,123,7,0.3)] hover:shadow-[0_15px_50px_rgba(211,123,7,0.5)] transition-all duration-300 hover:scale-[1.02] uppercase tracking-wider flex items-center gap-4 justify-center"
+                                >
+                                    <Calendar className="w-6 h-6 md:w-8 md:h-8" />
+                                    Book Your 15-Minute Fit Call
+                                </Button>
+                            </a>
                         </div>
 
                         {/* Qualification Indicators */}

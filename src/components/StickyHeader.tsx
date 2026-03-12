@@ -35,7 +35,7 @@ export function StickyHeader() {
                         </div>
 
                         {/* CTA */}
-                        <a href="#intake">
+                        <a href="https://api.leadconnectorhq.com/widget/bookings/15-minute-fit-call1" target="_blank" rel="noopener noreferrer">
                             <Button size="sm" className="rounded-full bg-[#D37B07] hover:bg-[#E8920F] text-[#0D1321] font-bold px-5 border-none">
                                 Book Your Fit Call
                             </Button>
