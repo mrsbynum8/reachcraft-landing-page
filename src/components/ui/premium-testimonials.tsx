@@ -45,9 +45,9 @@ export function PremiumTestimonials() {
 
     const slideVariants = {
         enter: (direction: number) => ({
-            x: direction > 0 ? 500 : -500,
+            x: direction > 0 ? "100%" : "-100%",
             opacity: 0,
-            scale: 0.9,
+            scale: 0.95,
         }),
         center: {
             zIndex: 1,
@@ -57,9 +57,9 @@ export function PremiumTestimonials() {
         },
         exit: (direction: number) => ({
             zIndex: 0,
-            x: direction < 0 ? 500 : -500,
+            x: direction < 0 ? "100%" : "-100%",
             opacity: 0,
-            scale: 0.9,
+            scale: 0.95,
         })
     };
 
@@ -154,7 +154,10 @@ export function PremiumTestimonials() {
                                 }}
                                 className="absolute inset-0"
                             >
-                                <div className="glass-card relative h-full bg-[#1A233B]/40 backdrop-blur-xl rounded-3xl border border-[#FFFAF1]/10 p-8 md:p-14 overflow-hidden group shadow-2xl">
+                                <div 
+                                    className="glass-card relative h-full bg-[#1A233B]/40 backdrop-blur-xl rounded-3xl border border-[#FFFAF1]/10 p-8 md:p-14 overflow-hidden group shadow-2xl transform-gpu"
+                                    style={{ willChange: 'transform, opacity' }}
+                                >
                                     <div className="relative z-10 h-full flex flex-col md:flex-row items-start md:items-center gap-10">
                                         {/* Icon Space */}
                                         <div className="flex-shrink-0">

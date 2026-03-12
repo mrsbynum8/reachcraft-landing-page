@@ -14,7 +14,7 @@ function App() {
     const openBooking = () => setBookingModalOpen(true);
 
     return (
-        <div className="min-h-screen bg-[#0D1321] text-[#FFFAF1] font-sans selection:bg-[#D37B07] selection:text-white">
+        <div className="min-h-screen bg-[#0D1321] text-[#FFFAF1] font-sans selection:bg-[#D37B07] selection:text-white overflow-x-hidden">
             <StickyHeader onOpenBooking={openBooking} />
 
             <main className="relative">

@@ -43,7 +43,7 @@ export function ProcessTimeline() {
     const x = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
 
     return (
-        <section id="process" ref={targetRef} className="relative h-[400vh] bg-[#0D1321] z-10">
+        <section id="process" ref={targetRef} className="relative h-[400vh] bg-[#0D1321] z-10 overflow-x-hidden">
             <div className="sticky top-0 flex h-screen items-center overflow-hidden bg-[#0D1321] transform-gpu isolate">
                 <div className="container mx-auto px-6">
                     <div className="mb-12 md:mb-20 max-w-4xl">
