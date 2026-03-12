@@ -85,7 +85,7 @@ export function Hero({ onOpenBooking }: HeroProps) {
                         <ArrowRight className="ml-2.5 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
                     </Button>
 
-                    <a href="#process">
+                    <a href="#showcase">
                         <Button variant="ghost" size="lg" className="h-16 px-10 text-lg font-semibold rounded-full text-[#FFFAF1] border border-[#FFFAF1]/20 hover:bg-[#FFFAF1]/5 hover:border-[#FFFAF1]/40 transition-all duration-300">
                             See What We Find
                         </Button>

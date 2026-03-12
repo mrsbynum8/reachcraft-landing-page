@@ -49,7 +49,7 @@ export function FeatureShowcase() {
     const activeFeature = ROADMAP_POINTS.find(p => p.id === activeId) || ROADMAP_POINTS[0];
 
     return (
-        <section className="min-h-[80vh] flex items-center bg-[#0D1321] relative isolate z-10 text-left py-24">
+        <section id="showcase" className="min-h-[80vh] flex items-center bg-[#0D1321] relative isolate z-10 text-left py-24">
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
 

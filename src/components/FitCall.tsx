@@ -9,7 +9,7 @@ interface FitCallProps {
 
 export function FitCall({ onOpenBooking }: FitCallProps) {
     return (
-        <section id="intake" className="py-24 md:py-32 relative bg-[#0D1321] overflow-hidden">
+        <section id="intake" className="py-24 md:py-32 relative bg-[#0D1321]">
             {/* Background Glow */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[700px] bg-gradient-radial from-[#D37B07]/5 to-transparent blur-3xl opacity-50" />
@@ -33,10 +33,10 @@ export function FitCall({ onOpenBooking }: FitCallProps) {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
+                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.5 }}
                         className="flex flex-col items-center"
                     >
                         <div className="glass-card p-1 md:p-2 rounded-2xl bg-gradient-to-b from-[#FFFAF1]/10 to-transparent border border-[#FFFAF1]/5 mb-12 shadow-2xl">
@@ -52,38 +52,20 @@ export function FitCall({ onOpenBooking }: FitCallProps) {
 
                         {/* Qualification Indicators */}
                         <div className="max-w-2xl mx-auto border-t border-[#FFFAF1]/5 pt-12 w-full space-y-6">
-                            <motion.div 
-                                initial={{ opacity: 0, x: -10 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.2 }}
-                                className="flex items-start gap-4 text-[#93A4AF] text-left"
-                            >
+                            <div className="flex items-start gap-4 text-[#93A4AF] text-left">
                                 <CheckCircle2 className="w-5 h-5 text-[#D37B07] shrink-0 mt-1" />
                                 <span className="text-lg">This engagement is built for founder-led businesses doing <strong>$1M to $10M</strong> in annual revenue.</span>
-                            </motion.div>
+                            </div>
 
-                            <motion.div 
-                                initial={{ opacity: 0, x: -10 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.3 }}
-                                className="flex items-start gap-4 text-[#93A4AF] text-left"
-                            >
+                            <div className="flex items-start gap-4 text-[#93A4AF] text-left">
                                 <CheckCircle2 className="w-5 h-5 text-[#D37B07] shrink-0 mt-1" />
                                 <span className="text-lg">This is a premium engagement. It starts at <strong>$10,000</strong>.</span>
-                            </motion.div>
+                            </div>
 
-                            <motion.div 
-                                initial={{ opacity: 0, x: -10 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.4 }}
-                                className="flex items-start gap-4 text-[#93A4AF] text-left"
-                            >
+                            <div className="flex items-start gap-4 text-[#93A4AF] text-left">
                                 <AlertCircle className="w-5 h-5 text-[#D37B07] shrink-0 mt-1" />
                                 <span className="text-lg">Limited engagements per quarter. <strong>Qualified founders only.</strong></span>
-                            </motion.div>
+                            </div>
                         </div>
                     </motion.div>
 

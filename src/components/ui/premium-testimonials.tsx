@@ -70,7 +70,7 @@ export function PremiumTestimonials() {
             y: 0,
             transition: {
                 duration: 0.6,
-                ease: 'easeOut'
+                ease: 'easeOut' as any
             }
         }
     };
@@ -110,7 +110,7 @@ export function PremiumTestimonials() {
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-50px" }}
             >
                 {/* Header */}
                 <div className="max-w-4xl mx-auto text-center mb-20">
