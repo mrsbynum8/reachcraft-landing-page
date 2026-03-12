@@ -26,7 +26,8 @@ export function StickyHeader({ onOpenBooking }: StickyHeaderProps) {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -100, opacity: 0 }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className="fixed top-5 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-4xl z-50"
+                    className="fixed top-5 left-1/2 -translate-x-1/2 w-[calc(100%-40px)] max-w-4xl z-[100] transform-gpu"
+                    style={{ willChange: 'transform, opacity', transform: 'translateX(-50%) translateZ(0)' }}
                 >
                     <div className="glass-card !rounded-full px-5 py-3 flex items-center justify-between shadow-2xl !border-[#FFFAF1]/10">
                         {/* Logo */}
