@@ -14,34 +14,24 @@ function App() {
     const openBooking = () => setBookingModalOpen(true);
 
     return (
-        <div className="min-h-screen bg-[#0D1321] text-[#FFFAF1] font-sans selection:bg-[#D37B07] selection:text-white overflow-x-hidden">
+        <div className="min-h-screen bg-[#0D1321] text-[#FFFAF1] font-sans selection:bg-[#D37B07] selection:text-white">
             <StickyHeader onOpenBooking={openBooking} />
 
-            <main className="relative">
+            <main className="relative overflow-x-clip">
                 {/* Section 1: Hero */}
-                <div className="relative z-0">
-                    <Hero onOpenBooking={openBooking} />
-                </div>
+                <Hero onOpenBooking={openBooking} />
 
                 {/* Section 2: Map */}
-                <div className="relative z-10 bg-[#0D1321]">
-                    <FeatureShowcase />
-                </div>
+                <FeatureShowcase />
 
                 {/* Section 3: Timeline */}
-                <div className="relative z-20 bg-[#0D1321]">
-                    <ProcessTimeline />
-                </div>
+                <ProcessTimeline />
 
                 {/* Section 4: Findings */}
-                <div className="relative z-30 bg-[#0D1321]">
-                    <PremiumTestimonials />
-                </div>
+                <PremiumTestimonials />
 
                 {/* Section 5: Fit Call */}
-                <div className="relative z-40 bg-[#0D1321]">
-                    <FitCall onOpenBooking={openBooking} />
-                </div>
+                <FitCall onOpenBooking={openBooking} />
             </main>
 
             {/* Footer */}

@@ -76,7 +76,7 @@ const PointMarker = ({ point, isActive, onClick }: { point: RoadmapPoint; isActi
 
 export const InteractiveMap = ({ points, activePointId, onPointClick, className }: InteractiveMapProps) => {
     return (
-        <div className={cn("relative w-full aspect-square md:aspect-[4/3] overflow-visible", className)}>
+        <div className={cn("relative w-full aspect-square md:aspect-[4/3] overflow-hidden", className)}>
             {/* Background Map Image - Full Visibility for 3D Map */}
             <div
                 className="absolute inset-0 flex items-center justify-center"

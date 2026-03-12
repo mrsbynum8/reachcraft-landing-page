@@ -43,8 +43,8 @@ export function ProcessTimeline() {
     const x = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
 
     return (
-        <section id="process" ref={targetRef} className="relative h-[400vh] bg-[#0D1321] z-10 overflow-x-hidden">
-            <div className="sticky top-0 flex h-screen items-center overflow-hidden bg-[#0D1321] transform-gpu isolate">
+        <section id="process" ref={targetRef} className="relative h-[400vh] bg-[#0D1321] z-10 pb-64">
+            <div className="sticky top-0 flex h-screen items-center overflow-hidden bg-[#0D1321]">
                 <div className="container mx-auto px-6">
                     <div className="mb-12 md:mb-20 max-w-4xl">
                         <h2 className="font-display text-4xl md:text-6xl font-bold text-[#FFFAF1] mb-6">
@@ -56,7 +56,7 @@ export function ProcessTimeline() {
                     </div>
 
                     <div className="relative">
-                        <motion.div style={{ x }} className="flex gap-8 md:gap-12 w-max px-4 will-change-transform transform-gpu">
+                        <motion.div style={{ x }} className="flex gap-8 md:gap-12 w-max px-4">
                             {STEPS.map((step) => (
                                 <div
                                     key={step.id}
@@ -78,7 +78,7 @@ export function ProcessTimeline() {
                                         <span className="inline-block px-4 py-2 rounded-full bg-[#FFFAF1]/5 border border-[#FFFAF1]/10 text-sm font-mono text-[#D37B07] mb-6">
                                             PHASE 0{step.id}
                                         </span>
-                                        <h3 className="text-3xl md:text-5xl font-bold text-[#FFFAF1] mb-6">
+                                        <h3 className="font-display text-3xl md:text-5xl font-bold text-[#FFFAF1] mb-6">
                                             {step.title}
                                         </h3>
                                         <p className="text-lg md:text-xl text-[#93A4AF] leading-relaxed mb-8">
