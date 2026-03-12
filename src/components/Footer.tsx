@@ -20,20 +20,10 @@ export function Footer() {
                         <a href="#" className="hover:text-[#D37B07] transition-colors">Terms of Service</a>
                         <a href="#" className="hover:text-[#D37B07] transition-colors">Contact</a>
                     </nav>
-
-                    {/* Social */}
-                    <div className="flex items-center gap-4">
-                        <a href="#" className="w-10 h-10 rounded-full border border-[#FFFAF1]/20 flex items-center justify-center text-[#93A4AF] hover:text-[#D37B07] hover:border-[#D37B07]/50 transition-colors">
-                            <Twitter className="w-4 h-4" />
-                        </a>
-                        <a href="#" className="w-10 h-10 rounded-full border border-[#FFFAF1]/20 flex items-center justify-center text-[#93A4AF] hover:text-[#D37B07] hover:border-[#D37B07]/50 transition-colors">
-                            <Linkedin className="w-4 h-4" />
-                        </a>
-                    </div>
                 </div>
 
                 <div className="mt-12 text-center text-sm text-[#93A4AF]/60">
-                    © {new Date().getFullYear()} ReachCraft. All rights reserved. Made with 🔥 for ambitious founders.
+                    © 2026 Blue Corner Ventures LLC. All rights reserved.
                 </div>
             </div>
         </footer>

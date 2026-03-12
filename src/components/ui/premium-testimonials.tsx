@@ -1,53 +1,32 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
-import { Quote, Star, ArrowLeft, ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Sparkles, Search, BarChart3, Clock, DollarSign } from 'lucide-react';
 
-const testimonials = [
+const findings = [
     {
-        name: "Sarah Chen",
-        role: "CEO, Nexus Ventures",
-        company: "Nexus",
-        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
-        rating: 5,
-        text: "ReachCraft transformed our entire operation. We've seen a 300% increase in efficiency and saved over $2M in operational costs. The diagnostic was spot on.",
-        results: ["300% efficiency increase", "$2M cost savings", "24/7 automation"]
+        title: "The Hidden Channel",
+        description: "Marketing budget allocated to a channel that analytics reported as the #2 revenue driver. Forensic data extraction revealed it was producing zero qualified pipeline. Budget reallocated.",
+        outcome: "Cost recovered within 60 days.",
+        icon: Search,
     },
     {
-        name: "Marcus Johnson",
-        role: "CTO, DataDrive Inc",
-        company: "DataDrive",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-        rating: 5,
-        text: "The strategic roadmap was revolutionary. Our customer satisfaction increased by 40% while reducing execution time from months to weeks. Incredible ROI.",
-        results: ["40% satisfaction boost", "Fast execution", "Seamless integration"]
+        title: "The Invisible Handoff",
+        description: "Sales pipeline showed a 22% close rate. Forensic staff interviews revealed that 40% of qualified leads were never contacted due to a CRM routing gap. Not a performance problem.",
+        outcome: "A systems problem.",
+        icon: BarChart3,
     },
     {
-        name: "Elena Rodriguez",
-        role: "VP Operations, ScaleUp Co",
-        company: "ScaleUp",
-        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
-        rating: 5,
-        text: "From workflow analysis to implementation, ReachCraft handles everything. Our team can finally focus on strategy instead of repetitive fire-fighting.",
-        results: ["Full automation", "Strategic focus", "Team productivity"]
+        title: "The Manual Ceiling",
+        description: "Operations team logging 60+ hours per week. Forensic task audit revealed 35% of that time spent on work that AI systems could own entirely. No headcount change.",
+        outcome: "Capacity unlocked.",
+        icon: Clock,
     },
     {
-        name: "David Kim",
-        role: "Founder, GrowthLab",
-        company: "GrowthLab",
-        avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-        rating: 5,
-        text: "The custom systems delivered results beyond our expectations. Revenue increased 150% while operational overhead decreased significantly.",
-        results: ["150% revenue growth", "Reduced overhead", "Scalable systems"]
+        title: "The Buried Revenue",
+        description: "Existing client accounts contained upsell and cross-sell opportunities that no current report surfaced. Forensic data mapping identified recoverable revenue.",
+        outcome: "Representing 12% of current top line.",
+        icon: DollarSign,
     },
-    {
-        name: "Lisa Thompson",
-        role: "Director, InnovateCorp",
-        company: "InnovateCorp",
-        avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&h=150&fit=crop&crop=face",
-        rating: 5,
-        text: "Exceptional insights that actually work. The implementation was smooth, and the results were immediate. Best investment we've made.",
-        results: ["Immediate results", "Smooth integration", "High ROI"]
-    }
 ];
 
 export function PremiumTestimonials() {
@@ -58,43 +37,40 @@ export function PremiumTestimonials() {
     useEffect(() => {
         const timer = setInterval(() => {
             setDirection(1);
-            setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-        }, 10000); // Slowed down to 10s per user request
+            setCurrentIndex((prev) => (prev + 1) % findings.length);
+        }, 8000);
 
         return () => clearInterval(timer);
     }, []);
 
     const slideVariants = {
         enter: (direction: number) => ({
-            x: direction > 0 ? 1000 : -1000,
+            x: direction > 0 ? 500 : -500,
             opacity: 0,
-            scale: 0.8,
-            rotateY: direction > 0 ? 45 : -45
+            scale: 0.9,
         }),
         center: {
             zIndex: 1,
             x: 0,
             opacity: 1,
             scale: 1,
-            rotateY: 0
         },
         exit: (direction: number) => ({
             zIndex: 0,
-            x: direction < 0 ? 1000 : -1000,
+            x: direction < 0 ? 500 : -500,
             opacity: 0,
-            scale: 0.8,
-            rotateY: direction < 0 ? 45 : -45
+            scale: 0.9,
         })
     };
 
     const fadeInUp = {
-        hidden: { opacity: 0, y: 60 },
+        hidden: { opacity: 0, y: 40 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.8,
-                ease: [0.23, 0.86, 0.39, 0.96]
+                duration: 0.6,
+                ease: 'easeOut'
             }
         }
     };
@@ -105,91 +81,27 @@ export function PremiumTestimonials() {
             opacity: 1,
             transition: {
                 staggerChildren: 0.1,
-                delayChildren: 0.3
+                delayChildren: 0.2
             }
         }
     };
 
-    const nextTestimonial = () => {
+    const nextSlide = () => {
         setDirection(1);
-        setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+        setCurrentIndex((prev) => (prev + 1) % findings.length);
     };
 
-    const prevTestimonial = () => {
+    const prevSlide = () => {
         setDirection(-1);
-        setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+        setCurrentIndex((prev) => (prev - 1 + findings.length) % findings.length);
     };
 
     return (
-        <section id="testimonials" className="relative py-32 bg-[#0D1321] text-[#FFFAF1] overflow-hidden">
-            {/* Enhanced Background Effects - Using Brand Colors */}
+        <section id="findings" className="relative py-32 bg-[#0D1321] text-[#FFFAF1] overflow-hidden">
+            {/* Background Effects */}
             <div className="absolute inset-0 pointer-events-none">
-                {/* Animated gradient mesh */}
-                <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-[#1A233B] via-[#0D1321] to-[#1A233B]"
-                    animate={{
-                        backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
-                    }}
-                    transition={{
-                        duration: 25,
-                        repeat: Infinity,
-                        ease: "linear"
-                    }}
-                    style={{
-                        backgroundSize: '400% 400%'
-                    }}
-                />
-
-                {/* Moving light orbs - Brand Ochre/Steel */}
-                <motion.div
-                    className="absolute top-1/3 left-1/5 w-72 h-72 bg-[#D37B07]/10 rounded-full blur-3xl"
-                    animate={{
-                        x: [0, 150, 0],
-                        y: [0, 80, 0],
-                        scale: [1, 1.2, 1],
-                    }}
-                    transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                    }}
-                />
-                <motion.div
-                    className="absolute bottom-1/3 right-1/5 w-80 h-80 bg-[#93A4AF]/10 rounded-full blur-3xl"
-                    animate={{
-                        x: [0, -100, 0],
-                        y: [0, -60, 0],
-                        scale: [1, 1.3, 1],
-                    }}
-                    transition={{
-                        duration: 22,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                    }}
-                />
-
-                {/* Floating particles */}
-                {[...Array(12)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute w-1 h-1 bg-[#D37B07]/30 rounded-full"
-                        style={{
-                            left: `${15 + (i * 7)}%`,
-                            top: `${25 + (i * 5)}%`,
-                        }}
-                        animate={{
-                            y: [0, -50, 0],
-                            opacity: [0.2, 1, 0.2],
-                            scale: [1, 2, 1],
-                        }}
-                        transition={{
-                            duration: 3 + i * 0.5,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: i * 0.3,
-                        }}
-                    />
-                ))}
+                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#D37B07]/5 rounded-full blur-[120px]" />
+                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#93A4AF]/5 rounded-full blur-[120px]" />
             </div>
 
             <motion.div
@@ -201,63 +113,33 @@ export function PremiumTestimonials() {
                 viewport={{ once: true, margin: "-100px" }}
             >
                 {/* Header */}
-                <motion.div
-                    className="text-center mb-20"
-                    variants={fadeInUp}
-                >
+                <div className="max-w-4xl mx-auto text-center mb-20">
                     <motion.div
-                        className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#D37B07]/10 border border-[#D37B07]/20 backdrop-blur-sm mb-6"
-                        whileHover={{ scale: 1.05, borderColor: "rgba(211, 123, 7, 0.4)" }}
+                        variants={fadeInUp}
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D37B07]/10 border border-[#D37B07]/20 text-[#D37B07] text-xs font-bold uppercase tracking-widest mb-6"
                     >
-                        <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                        >
-                            <Sparkles className="h-4 w-4 text-[#D37B07]" />
-                        </motion.div>
-                        <span className="text-sm font-medium text-[#FFFAF1]/90">
-                            ✨ Client Success Stories
-                        </span>
-                        <div className="w-2 h-2 bg-[#D37B07] rounded-full animate-pulse" />
+                        <Sparkles className="h-3 w-3" />
+                        <span>What Becomes Visible</span>
                     </motion.div>
 
                     <motion.h2
-                        className="font-display text-4xl sm:text-6xl md:text-7xl font-bold mb-8 tracking-tight"
                         variants={fadeInUp}
+                        className="font-display text-4xl md:text-6xl font-black mb-8 tracking-tight leading-tight"
                     >
-                        <span className="text-[#FFFAF1]">
-                            Trusted by
-                        </span>
-                        <br />
-                        <motion.span
-                            className="bg-clip-text text-transparent bg-gradient-to-r from-[#D37B07] via-[#E8920F] to-[#D37B07]"
-                            animate={{
-                                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                            }}
-                            transition={{
-                                duration: 5,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                            style={{
-                                backgroundSize: '200% 200%'
-                            }}
-                        >
-                            Ambitious Founders
-                        </motion.span>
+                        What the Investigation Surfaces
                     </motion.h2>
 
                     <motion.p
-                        className="text-xl sm:text-2xl text-[#93A4AF] max-w-4xl mx-auto leading-relaxed"
                         variants={fadeInUp}
+                        className="text-xl text-[#93A4AF] leading-relaxed"
                     >
-                        Join thousands of businesses already transforming their operations with our intelligence.
+                        Every engagement is unique. The pattern is not. Here is what a forensic audit typically reveals inside a $1M-to-$10M founder-led business.
                     </motion.p>
-                </motion.div>
+                </div>
 
-                {/* Main Testimonial Display */}
-                <div className="relative max-w-6xl mx-auto mb-16">
-                    <div className="relative h-[600px] md:h-[450px] perspective-1000">
+                {/* Carousel Card */}
+                <div className="relative max-w-5xl mx-auto mb-16">
+                    <div className="relative h-[480px] md:h-[400px]">
                         <AnimatePresence initial={false} custom={direction}>
                             <motion.div
                                 key={currentIndex}
@@ -268,122 +150,39 @@ export function PremiumTestimonials() {
                                 exit="exit"
                                 transition={{
                                     x: { type: "spring", stiffness: 300, damping: 30 },
-                                    opacity: { duration: 0.4 },
-                                    scale: { duration: 0.4 },
-                                    rotateY: { duration: 0.6 }
+                                    opacity: { duration: 0.3 }
                                 }}
                                 className="absolute inset-0"
                             >
-                                <div className="glass-card relative h-full bg-[#1A233B]/40 backdrop-blur-xl rounded-3xl border border-[#FFFAF1]/10 p-8 md:p-12 overflow-hidden group">
-                                    {/* Animated background gradient */}
-                                    <motion.div
-                                        className="absolute inset-0 bg-gradient-to-br from-[#D37B07]/5 via-transparent to-[#93A4AF]/5 rounded-3xl"
-                                        animate={{
-                                            backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
-                                        }}
-                                        transition={{
-                                            duration: 15,
-                                            repeat: Infinity,
-                                            ease: "linear"
-                                        }}
-                                        style={{
-                                            backgroundSize: '300% 300%'
-                                        }}
-                                    />
-
-                                    {/* Quote icon */}
-                                    <motion.div
-                                        className="absolute top-8 right-8 opacity-10"
-                                        animate={{ rotate: [0, 10, 0] }}
-                                        transition={{ duration: 4, repeat: Infinity }}
-                                    >
-                                        <Quote className="w-16 h-16 text-[#FFFAF1]" />
-                                    </motion.div>
-
-                                    <div className="relative z-10 h-full flex flex-col md:flex-row items-center gap-8">
-                                        {/* User Info */}
-                                        <div className="flex-shrink-0 text-center md:text-left">
-                                            <motion.div
-                                                className="relative mb-6"
-                                                whileHover={{ scale: 1.1 }}
-                                                transition={{ duration: 0.3 }}
-                                            >
-                                                <div className="w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-4 border-[#1A233B] relative shadow-lg">
-                                                    <img
-                                                        src={testimonials[currentIndex].avatar}
-                                                        alt={testimonials[currentIndex].name}
-                                                        className="w-full h-full object-cover"
-                                                    />
-                                                    <motion.div
-                                                        className="absolute inset-0 bg-gradient-to-br from-[#D37B07]/20 to-[#93A4AF]/20"
-                                                        animate={{ opacity: [0, 0.3, 0] }}
-                                                        transition={{ duration: 3, repeat: Infinity }}
-                                                    />
-                                                </div>
-
-                                                {/* Floating ring animation */}
-                                                <motion.div
-                                                    className="absolute inset-0 border-2 border-[#D37B07]/30 rounded-full"
-                                                    animate={{
-                                                        scale: [1, 1.4, 1],
-                                                        opacity: [0.5, 0, 0.5]
-                                                    }}
-                                                    transition={{ duration: 2, repeat: Infinity }}
-                                                />
-                                            </motion.div>
-
-                                            <h3 className="text-2xl font-bold text-[#FFFAF1] mb-2 font-display">
-                                                {testimonials[currentIndex].name}
-                                            </h3>
-                                            <p className="text-[#D37B07] mb-1 font-medium">
-                                                {testimonials[currentIndex].role}
-                                            </p>
-                                            <p className="text-[#93A4AF] mb-4">
-                                                {testimonials[currentIndex].company}
-                                            </p>
-
-                                            {/* Star Rating */}
-                                            <div className="flex justify-center md:justify-start gap-1 mb-6">
-                                                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                                                    <motion.div
-                                                        key={i}
-                                                        initial={{ opacity: 0, scale: 0 }}
-                                                        animate={{ opacity: 1, scale: 1 }}
-                                                        transition={{ delay: i * 0.1, duration: 0.3 }}
-                                                    >
-                                                        <Star className="w-5 h-5 fill-[#E8920F] text-[#E8920F]" />
-                                                    </motion.div>
-                                                ))}
+                                <div className="glass-card relative h-full bg-[#1A233B]/40 backdrop-blur-xl rounded-3xl border border-[#FFFAF1]/10 p-8 md:p-14 overflow-hidden group shadow-2xl">
+                                    <div className="relative z-10 h-full flex flex-col md:flex-row items-start md:items-center gap-10">
+                                        {/* Icon Space */}
+                                        <div className="flex-shrink-0">
+                                            <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-[#D37B07]/10 border border-[#D37B07]/20 flex items-center justify-center shadow-lg">
+                                                {(() => {
+                                                    const Icon = findings[currentIndex].icon;
+                                                    return <Icon className="w-10 h-10 md:w-12 md:h-12 text-[#D37B07]" />;
+                                                })()}
                                             </div>
                                         </div>
 
-                                        {/* Content */}
+                                        {/* Content Area */}
                                         <div className="flex-1">
-                                            <motion.blockquote
-                                                className="text-xl md:text-2xl text-[#FFFAF1]/90 leading-relaxed mb-8 font-light italic"
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                transition={{ delay: 0.3, duration: 0.8 }}
-                                            >
-                                                "{testimonials[currentIndex].text}"
-                                            </motion.blockquote>
+                                            <h3 className="text-3xl md:text-4xl font-bold text-[#FFFAF1] mb-6 tracking-tight">
+                                                {findings[currentIndex].title}
+                                            </h3>
+                                            
+                                            <p className="text-xl md:text-2xl text-[#93A4AF] leading-relaxed mb-10 font-normal">
+                                                {findings[currentIndex].description}
+                                            </p>
 
-                                            {/* Results */}
-                                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                                                {testimonials[currentIndex].results.map((result, i) => (
-                                                    <motion.div
-                                                        key={i}
-                                                        className="bg-[#FFFAF1]/5 rounded-lg p-3 border border-[#FFFAF1]/10 backdrop-blur-sm"
-                                                        initial={{ opacity: 0, y: 20 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
-                                                        whileHover={{ backgroundColor: "rgba(211, 123, 7, 0.1)", borderColor: "rgba(211, 123, 7, 0.3)" }}
-                                                    >
-                                                        <span className="text-sm text-[#FFFAF1]/80 font-medium">
-                                                            {result}
-                                                        </span>
-                                                    </motion.div>
-                                                ))}
+                                            <div className="pt-8 border-t border-[#FFFAF1]/5">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-2 h-2 rounded-full bg-[#D37B07] shadow-[0_0_10px_rgba(211,123,7,0.8)]" />
+                                                    <span className="text-[#D37B07] font-black text-sm uppercase tracking-widest">
+                                                        Outcome: {findings[currentIndex].outcome}
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -392,48 +191,36 @@ export function PremiumTestimonials() {
                         </AnimatePresence>
                     </div>
 
-                    {/* Navigation Controls */}
-                    <div className="flex justify-center items-center gap-6 mt-8">
+                    {/* Navigation */}
+                    <div className="flex justify-center items-center gap-8 mt-12">
                         <motion.button
-                            onClick={prevTestimonial}
-                            className="p-3 rounded-full bg-[#FFFAF1]/5 border border-[#FFFAF1]/10 backdrop-blur-sm text-[#FFFAF1] hover:bg-[#D37B07]/20 hover:border-[#D37B07]/50 transition-all"
+                            onClick={prevSlide}
+                            className="p-4 rounded-full bg-[#FFFAF1]/5 border border-[#FFFAF1]/10 backdrop-blur-sm text-[#FFFAF1] hover:bg-[#D37B07]/10 hover:border-[#D37B07]/50 transition-all"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <ArrowLeft className="w-5 h-5" />
+                            <ArrowLeft className="w-6 h-6" />
                         </motion.button>
 
-                        {/* Dots Indicator */}
-                        <div className="flex gap-3">
-                            {testimonials.map((_, index) => (
-                                <motion.button
+                        <div className="flex gap-4">
+                            {findings.map((_, index) => (
+                                <motion.div
                                     key={index}
-                                    onClick={() => {
-                                        setDirection(index > currentIndex ? 1 : -1);
-                                        setCurrentIndex(index);
-                                    }}
-                                    className={`w-3 h-3 rounded-full transition-all ${index === currentIndex
-                                        ? 'bg-[#D37B07] scale-125'
-                                        : 'bg-[#FFFAF1]/20 hover:bg-[#FFFAF1]/40'
-                                        }`}
-                                    whileHover={{ scale: 1.2 }}
-                                    whileTap={{ scale: 0.9 }}
+                                    className={`h-1.5 rounded-full transition-all duration-300 ${index === currentIndex ? 'w-8 bg-[#D37B07]' : 'w-2 bg-[#FFFAF1]/20'}`}
                                 />
                             ))}
                         </div>
 
                         <motion.button
-                            onClick={nextTestimonial}
-                            className="p-3 rounded-full bg-[#FFFAF1]/5 border border-[#FFFAF1]/10 backdrop-blur-sm text-[#FFFAF1] hover:bg-[#D37B07]/20 hover:border-[#D37B07]/50 transition-all"
+                            onClick={nextSlide}
+                            className="p-4 rounded-full bg-[#FFFAF1]/5 border border-[#FFFAF1]/10 backdrop-blur-sm text-[#FFFAF1] hover:bg-[#D37B07]/10 hover:border-[#D37B07]/50 transition-all"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <ArrowRight className="w-5 h-5" />
+                            <ArrowRight className="w-6 h-6" />
                         </motion.button>
                     </div>
                 </div>
-
-                {/* Removed Stats Section as per user request */}
             </motion.div>
         </section>
     );

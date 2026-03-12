@@ -28,7 +28,7 @@ export function Hero() {
                     className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full glass-card !bg-[#1A233B]/60 !border-[#D37B07]/30"
                 >
                     <Sparkles className="w-4 h-4 text-[#D37B07]" />
-                    <span className="text-sm font-semibold text-[#FFFAF1] uppercase tracking-wider">AI-Powered Audit</span>
+                    <span className="text-sm font-semibold text-[#FFFAF1] uppercase tracking-wider">AI-Enhanced Forensic Investigation</span>
                 </motion.div>
 
                 {/* Headline */}
@@ -36,13 +36,12 @@ export function Hero() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.15, type: "spring", stiffness: 80 }}
-                    className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95] max-w-5xl"
+                    className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-[4rem] font-black tracking-tight leading-[1.05] max-w-5xl"
                 >
-                    <span className="text-[#FFFAF1]">We Don't Start With</span><br />
-                    <span className="text-[#FFFAF1]">Solutions. We Start</span><br />
-                    <span className="relative inline-block">
+                    <span className="text-[#FFFAF1]">Your Business Is Profitable. It's Also Leaking Money Every Month.</span><br />
+                    <span className="relative inline-block mt-4 lg:mt-6">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D37B07] via-[#E8920F] to-[#D37B07] bg-[length:200%_auto] animate-gradient-x">
-                            With the Truth.
+                            Both Things Are True.
                         </span>
                         {/* Underline effect */}
                         <motion.span
@@ -55,14 +54,16 @@ export function Hero() {
                 </motion.h1>
 
                 {/* Subhead */}
-                <motion.p
+                <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.7, delay: 0.4 }}
-                    className="text-lg md:text-xl lg:text-2xl text-[#93A4AF] max-w-2xl font-normal leading-relaxed mt-4"
+                    className="text-lg md:text-xl lg:text-2xl text-[#93A4AF] max-w-4xl font-normal leading-relaxed mt-4"
                 >
-                    ReachCraft's AI audit is a structured, AI-driven diagnostic that interviews you about your business — then maps what's working, what's breaking, and what's hiding.
-                </motion.p>
+                    <p>
+                        Revenue is real. The team is working. Clients are paying. And something is still quietly consuming your margin, your time, and your operational capacity. That gap between what your business looks like from the outside and what it costs to run from the inside: that is what we investigate.
+                    </p>
+                </motion.div>
 
                 {/* CTA Group */}
                 <motion.div
@@ -71,14 +72,18 @@ export function Hero() {
                     transition={{ duration: 0.5, delay: 0.6 }}
                     className="flex flex-col sm:flex-row gap-5 mt-10"
                 >
-                    <Button size="lg" className="h-16 px-10 text-lg font-bold rounded-full bg-[#D37B07] hover:bg-[#E8920F] text-[#0D1321] shadow-[0_0_60px_-15px_rgba(211,123,7,0.6)] group border-none transition-all duration-300 hover:shadow-[0_0_80px_-10px_rgba(211,123,7,0.8)] hover:scale-105">
-                        Start Your Audit
-                        <ArrowRight className="ml-2.5 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
-                    </Button>
+                    <a href="#intake">
+                        <Button size="lg" className="h-16 px-10 text-lg font-bold rounded-full bg-[#D37B07] hover:bg-[#E8920F] text-[#0D1321] shadow-[0_0_60px_-15px_rgba(211,123,7,0.6)] group border-none transition-all duration-300 hover:shadow-[0_0_80px_-10px_rgba(211,123,7,0.8)] hover:scale-105">
+                            Book Your Fit Call
+                            <ArrowRight className="ml-2.5 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
+                        </Button>
+                    </a>
 
-                    <Button variant="ghost" size="lg" className="h-16 px-10 text-lg font-semibold rounded-full text-[#FFFAF1] border border-[#FFFAF1]/20 hover:bg-[#FFFAF1]/5 hover:border-[#FFFAF1]/40 transition-all duration-300">
-                        View Sample Report
-                    </Button>
+                    <a href="#process">
+                        <Button variant="ghost" size="lg" className="h-16 px-10 text-lg font-semibold rounded-full text-[#FFFAF1] border border-[#FFFAF1]/20 hover:bg-[#FFFAF1]/5 hover:border-[#FFFAF1]/40 transition-all duration-300">
+                            See What We Find
+                        </Button>
+                    </a>
                 </motion.div>
 
                 {/* Trust Indicators */}
@@ -90,15 +95,15 @@ export function Hero() {
                 >
                     <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>Available for Qualified Founders</span>
+                        <span>Human-Led, AI-Enhanced</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>10 Minute Interview</span>
+                        <span>2-to-8 Week Investigation</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>Report in 48 Hours</span>
+                        <span>Limited Engagements Per Quarter</span>
                     </div>
                 </motion.div>
 

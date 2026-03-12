@@ -37,7 +37,7 @@ export function StickyHeader() {
                         {/* CTA */}
                         <a href="#intake">
                             <Button size="sm" className="rounded-full bg-[#D37B07] hover:bg-[#E8920F] text-[#0D1321] font-bold px-5 border-none">
-                                Start Audit
+                                Book Your Fit Call
                             </Button>
                         </a>
                     </div>

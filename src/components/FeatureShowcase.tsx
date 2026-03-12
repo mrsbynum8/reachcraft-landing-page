@@ -11,8 +11,8 @@ const ROADMAP_POINTS: RoadmapPoint[] = [
         x: "28%",
         y: "62%", // Bottom Left
         labelAlign: "left",
-        title: "The Marketing Void",
-        description: "Your ad spend is evaporating. We identify exactly where your funnel leaks compliant user data vs. high-intent leads."
+        title: "Marketing Void",
+        description: "Budget is leaving. You can't verify where qualified demand is actually coming from. The channel reports say one thing. The data says another."
     },
     {
         id: 2,
@@ -20,8 +20,8 @@ const ROADMAP_POINTS: RoadmapPoint[] = [
         status: "inactive",
         x: "45%",
         y: "61%", // Moved DOWN further (58% -> 61%)
-        title: "Sales Velocity Drag",
-        description: "Manual follow-ups are killing your close rate. Our audit reveals the exact delay cost of your current human-first sales Ops."
+        title: "Sales Friction",
+        description: "Qualified prospects are reaching your team and going quiet. The conversion gap is wider than your pipeline shows. It's compounding every month, invisibly."
     },
     {
         id: 3,
@@ -30,8 +30,8 @@ const ROADMAP_POINTS: RoadmapPoint[] = [
         x: "60%",
         y: "36%", // Moved UP further (40% -> 36%)
         labelAlign: "left", // Alternating to Left
-        title: "Operational Friction",
-        description: "Your team is drowning in admin. We map the repetitive tasks that AI agents could handle instantly, freeing up 40% of payroll time."
+        title: "Ops Bottleneck",
+        description: "Your people are executing work that systems should own. It doesn't show up as a crisis. It shows up as a ceiling you can't explain."
     },
     {
         id: 4,
@@ -39,8 +39,8 @@ const ROADMAP_POINTS: RoadmapPoint[] = [
         status: "inactive",
         x: "72%",
         y: "28%", // Top Right
-        title: "Revenue Leakage",
-        description: "Compound inefficiencies are costing you 15-20% of topline revenue. We pinpoint the exact dollar amount you're losing daily."
+        title: "Revenue Leak",
+        description: "There's recoverable revenue sitting inside your existing accounts and data right now. It doesn't appear on any report you currently run. It requires a forensic map to surface."
     },
 ];
 
@@ -49,7 +49,7 @@ export function FeatureShowcase() {
     const activeFeature = ROADMAP_POINTS.find(p => p.id === activeId) || ROADMAP_POINTS[0];
 
     return (
-        <section className="h-full flex items-center bg-[#0D1321] relative overflow-hidden text-left">
+        <section className="min-h-[80vh] flex items-center bg-[#0D1321] relative isolate z-10 text-left py-24">
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -61,8 +61,11 @@ export function FeatureShowcase() {
                             viewport={{ once: true }}
                         >
                             <h2 className="font-display text-4xl md:text-5xl font-bold text-[#FFFAF1] mb-6 leading-tight">
-                                The Path to <span className="text-[#D37B07]">Clarity</span>
+                                Where It's Happening <span className="text-[#D37B07]">Inside Your Business</span>
                             </h2>
+                            <p className="text-xl text-[#93A4AF] leading-relaxed mb-12 max-w-2xl">
+                                In every forensic engagement we run, we find the leak active in at least two of these four places. Usually inside a business that looks healthy from every other angle.
+                            </p>
 
                             <AnimatePresence mode="wait">
                                 <motion.div
