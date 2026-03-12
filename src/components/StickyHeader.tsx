@@ -3,7 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/Button';
 import { Zap } from 'lucide-react';
 
-export function StickyHeader() {
+interface StickyHeaderProps {
+    onOpenBooking: () => void;
+}
+
+export function StickyHeader({ onOpenBooking }: StickyHeaderProps) {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -35,11 +39,13 @@ export function StickyHeader() {
                         </div>
 
                         {/* CTA */}
-                        <a href="https://api.leadconnectorhq.com/widget/bookings/15-minute-fit-call1" target="_blank" rel="noopener noreferrer">
-                            <Button size="sm" className="rounded-full bg-[#D37B07] hover:bg-[#E8920F] text-[#0D1321] font-bold px-5 border-none">
-                                Book Your Fit Call
-                            </Button>
-                        </a>
+                        <Button 
+                            onClick={onOpenBooking}
+                            size="sm" 
+                            className="rounded-full bg-[#D37B07] hover:bg-[#E8920F] text-[#0D1321] font-bold px-5 border-none"
+                        >
+                            Book Your Fit Call
+                        </Button>
                     </div>
                 </motion.header>
             )}

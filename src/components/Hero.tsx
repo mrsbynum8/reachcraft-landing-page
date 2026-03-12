@@ -4,7 +4,11 @@ import { motion } from 'framer-motion';
 import { HeroBackground } from './HeroBackground';
 import { StarsBackground } from './ui/StarsBackground';
 
-export function Hero() {
+interface HeroProps {
+    onOpenBooking: () => void;
+}
+
+export function Hero({ onOpenBooking }: HeroProps) {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-32 bg-[#0D1321]">
             <HeroBackground />
@@ -72,12 +76,14 @@ export function Hero() {
                     transition={{ duration: 0.5, delay: 0.6 }}
                     className="flex flex-col sm:flex-row gap-5 mt-10"
                 >
-                    <a href="#intake">
-                        <Button size="lg" className="h-16 px-10 text-lg font-bold rounded-full bg-[#D37B07] hover:bg-[#E8920F] text-[#0D1321] shadow-[0_0_60px_-15px_rgba(211,123,7,0.6)] group border-none transition-all duration-300 hover:shadow-[0_0_80px_-10px_rgba(211,123,7,0.8)] hover:scale-105">
-                            Book Your Fit Call
-                            <ArrowRight className="ml-2.5 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
-                        </Button>
-                    </a>
+                    <Button 
+                        onClick={onOpenBooking}
+                        size="lg" 
+                        className="h-16 px-10 text-lg font-bold rounded-full bg-[#D37B07] hover:bg-[#E8920F] text-[#0D1321] shadow-[0_0_60px_-15px_rgba(211,123,7,0.6)] group border-none transition-all duration-300 hover:shadow-[0_0_80px_-10px_rgba(211,123,7,0.8)] hover:scale-105"
+                    >
+                        Book Your Fit Call
+                        <ArrowRight className="ml-2.5 w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
+                    </Button>
 
                     <a href="#process">
                         <Button variant="ghost" size="lg" className="h-16 px-10 text-lg font-semibold rounded-full text-[#FFFAF1] border border-[#FFFAF1]/20 hover:bg-[#FFFAF1]/5 hover:border-[#FFFAF1]/40 transition-all duration-300">
