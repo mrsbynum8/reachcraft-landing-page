@@ -8,7 +8,7 @@ const ROADMAP_POINTS: RoadmapPoint[] = [
         id: 1,
         label: "Marketing Void",
         status: "active",
-        x: "28%",
+        x: "31%",
         y: "62%", // Bottom Left
         labelAlign: "left",
         title: "Marketing Void",
