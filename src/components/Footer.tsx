@@ -8,7 +8,7 @@ export function Footer() {
                     {/* Logo - Left */}
                     <div className="flex-1 flex justify-start">
                         <img
-                            src="/RCALogo Version2 White.svg"
+                            src="/RCALogoVersion3-white.png"
                             alt="ReachCraft"
                             className="h-10 w-auto object-contain"
                         />

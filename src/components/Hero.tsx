@@ -10,7 +10,7 @@ interface HeroProps {
 
 export function Hero({ onOpenBooking }: HeroProps) {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-32 bg-[#0D1321] overflow-x-hidden">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-12 md:py-32 bg-[#0D1321] overflow-x-hidden">
             <HeroBackground />
 
             {/* Stars Layer */}

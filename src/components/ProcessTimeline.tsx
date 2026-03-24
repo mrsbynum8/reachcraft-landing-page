@@ -39,13 +39,14 @@ export function ProcessTimeline() {
         target: targetRef,
     });
 
-    // Move from 0% to -55% to center the last card at the end of scroll
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-55%"]);
+    // Move from 0% to -72% to ensure Phase 4 is fully visible even on smaller desktop screens
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-72%"]);
 
     return (
-        <section id="process" ref={targetRef} className="relative h-[400vh] bg-[#0D1321] z-10 pb-64">
-            <div className="sticky top-0 flex h-screen items-center overflow-hidden bg-[#0D1321]">
-                <div className="container mx-auto px-6">
+        <section id="process" ref={targetRef} className="relative h-auto md:h-[300vh] bg-[#0D1321] z-10 pb-24 md:pb-32">
+            {/* Desktop Horizontal View */}
+            <div className="hidden md:block sticky top-0 h-screen items-center overflow-hidden bg-[#0D1321]">
+                <div className="container mx-auto px-6 h-full flex flex-col pt-32">
                     <div className="mb-12 md:mb-20 max-w-4xl">
                         <h2 className="font-display text-4xl md:text-6xl font-bold text-[#FFFAF1] mb-6">
                             The <span className="text-[#D37B07]">Investigation</span>
@@ -90,6 +91,46 @@ export function ProcessTimeline() {
                             ))}
                         </motion.div>
                     </div>
+                </div>
+            </div>
+
+            {/* Mobile Vertical View */}
+            <div className="block md:hidden container mx-auto px-6 pt-12">
+                <div className="mb-12 max-w-4xl">
+                    <h2 className="font-display text-4xl font-bold text-[#FFFAF1] mb-6">
+                        The <span className="text-[#D37B07]">Investigation</span>
+                    </h2>
+                    <p className="text-xl text-[#93A4AF]">
+                        A 2-to-8 week forensic engagement. Human-led, AI-enhanced.
+                    </p>
+                </div>
+
+                <div className="space-y-8">
+                    {STEPS.map((step) => (
+                        <div
+                            key={step.id}
+                            className="relative min-h-[350px] w-full rounded-[2rem] bg-[#1A233B] border border-[#FFFAF1]/10 p-8 flex flex-col justify-end overflow-hidden"
+                        >
+                            <div
+                                className="absolute inset-0 opacity-10"
+                                style={{ background: `radial-gradient(circle at top right, ${step.color}, transparent 70%)` }}
+                            />
+                            <div className="absolute top-8 right-8 text-[#FFFAF1]/10">
+                                <step.icon size={80} strokeWidth={1} />
+                            </div>
+                            <div className="relative z-10">
+                                <span className="inline-block px-4 py-1 rounded-full bg-[#FFFAF1]/5 border border-[#FFFAF1]/10 text-xs font-mono text-[#D37B07] mb-4">
+                                    PHASE 0{step.id}
+                                </span>
+                                <h3 className="font-display text-2xl font-bold text-[#FFFAF1] mb-4">
+                                    {step.title}
+                                </h3>
+                                <p className="text-base text-[#93A4AF] leading-relaxed mb-6">
+                                    {step.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

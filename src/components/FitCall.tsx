@@ -9,7 +9,7 @@ interface FitCallProps {
 
 export function FitCall({ onOpenBooking }: FitCallProps) {
     return (
-        <section id="intake" className="py-24 md:py-32 relative bg-[#0D1321] overflow-hidden">
+        <section id="intake" className="pt-12 pb-12 md:pt-16 md:pb-32 relative bg-[#0D1321] overflow-hidden">
             {/* Background Glow */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[700px] bg-gradient-radial from-[#D37B07]/5 to-transparent blur-3xl opacity-50" />
@@ -59,7 +59,7 @@ export function FitCall({ onOpenBooking }: FitCallProps) {
 
                             <div className="flex items-start gap-4 text-[#93A4AF] text-left">
                                 <CheckCircle2 className="w-5 h-5 text-[#D37B07] shrink-0 mt-1" />
-                                <span className="text-lg">This is a premium engagement. It starts at <strong>$10,000</strong>.</span>
+                                <span className="text-lg">This is a premium engagement.</span>
                             </div>
 
                             <div className="flex items-start gap-4 text-[#93A4AF] text-left">

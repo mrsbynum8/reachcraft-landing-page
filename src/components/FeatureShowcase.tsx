@@ -49,71 +49,64 @@ export function FeatureShowcase() {
     const activeFeature = ROADMAP_POINTS.find(p => p.id === activeId) || ROADMAP_POINTS[0];
 
     return (
-        <section id="showcase" className="min-h-[80vh] flex items-center bg-[#0D1321] relative isolate z-10 text-left py-24 overflow-hidden">
+        <section id="showcase" className="min-h-screen flex items-center bg-[#0D1321] relative isolate z-10 text-center pt-12 pb-8 md:pt-24 md:pb-16 overflow-hidden">
             <div className="container mx-auto px-6 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                {/* 1. Header: Headline + Copy */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="max-w-4xl mx-auto mb-16"
+                >
+                    <h2 className="font-display text-4xl md:text-6xl font-bold text-[#FFFAF1] mb-6 leading-tight">
+                        Where It's Happening <br className="hidden md:block" />
+                        <span className="text-[#D37B07]">Inside Your Business</span>
+                    </h2>
+                    <p className="text-xl text-[#93A4AF] leading-relaxed max-w-2xl mx-auto">
+                        In every forensic engagement we run, we find the leak active in at least two of these four places. Usually inside a business that looks healthy from every other angle.
+                    </p>
+                </motion.div>
 
-                    {/* Left Content - Dynamic Info */}
-                    <div className="order-2 lg:order-1">
+                {/* 2. Central Visual: Interactive Map */}
+                <div className="relative max-w-5xl mx-auto mb-20">
+                    <div className="relative px-4 py-8 md:px-16 md:py-12">
+                        <InteractiveMap
+                            points={ROADMAP_POINTS}
+                            activePointId={activeId}
+                            onPointClick={setActiveId}
+                        />
+                    </div>
+                </div>
+
+                {/* 3. Findings Grid: Corresponding Sections */}
+                <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto mb-12">
+                    {ROADMAP_POINTS.map((point) => (
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            key={point.id}
+                            onMouseEnter={() => setActiveId(point.id)}
+                            className={`text-left p-8 rounded-[2rem] border transition-all duration-500 cursor-pointer group ${
+                                activeId === point.id
+                                    ? "bg-[#D37B07]/10 border-[#D37B07] shadow-[0_0_40px_-10px_rgba(211,123,7,0.2)]"
+                                    : "bg-[#1A233B]/40 border-[#FFFAF1]/5 hover:border-[#FFFAF1]/20"
+                            }`}
                         >
-                            <h2 className="font-display text-4xl md:text-5xl font-bold text-[#FFFAF1] mb-6 leading-tight">
-                                Where It's Happening <span className="text-[#D37B07]">Inside Your Business</span>
-                            </h2>
-                            <p className="text-xl text-[#93A4AF] leading-relaxed mb-12 max-w-2xl">
-                                In every forensic engagement we run, we find the leak active in at least two of these four places. Usually inside a business that looks healthy from every other angle.
-                            </p>
-
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={activeFeature.id}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: 20 }}
-                                    transition={{ duration: 0.3 }}
-                                    className="min-h-[160px]"
-                                >
-                                    <h3 className="text-2xl text-[#D37B07] font-bold mb-4 flex items-center gap-3">
-                                        <div className="w-8 h-1 bg-[#D37B07]" />
-                                        {activeFeature.title}
-                                    </h3>
-                                    <p className="text-xl text-[#93A4AF] leading-relaxed mb-8">
-                                        {activeFeature.description}
-                                    </p>
-                                </motion.div>
-                            </AnimatePresence>
-
-                            <div className="flex flex-col sm:flex-row gap-4 mt-4 flex-wrap">
-                                {ROADMAP_POINTS.map(point => (
-                                    <button
-                                        key={point.id}
-                                        onClick={() => setActiveId(point.id)}
-                                        className={`text-left px-4 py-3 rounded-lg border transition-all duration-300 ${activeId === point.id
-                                            ? "bg-[#D37B07]/10 border-[#D37B07] text-[#FFFAF1]"
-                                            : "bg-transparent border-[#FFFAF1]/10 text-[#93A4AF] hover:bg-[#FFFAF1]/5"
-                                            }`}
-                                    >
-                                        <span className="font-semibold block">{point.label}</span>
-                                    </button>
-                                ))}
+                            <div className="flex items-start gap-4 mb-4">
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-mono text-sm font-bold border transition-colors ${
+                                    activeId === point.id ? "bg-[#D37B07] border-[#D37B07] text-[#0D1321]" : "bg-[#FFFAF1]/5 border-[#FFFAF1]/10 text-[#D37B07]"
+                                }`}>
+                                    0{point.id}
+                                </div>
+                                <h3 className={`text-2xl font-bold transition-colors ${
+                                    activeId === point.id ? "text-[#FFFAF1]" : "text-[#FFFAF1]/70"
+                                }`}>
+                                    {point.title}
+                                </h3>
                             </div>
+                            <p className="text-[#93A4AF] leading-relaxed text-lg">
+                                {point.description}
+                            </p>
                         </motion.div>
-                    </div>
-
-                    {/* Right Content - Interactive Map */}
-                    <div className="order-1 lg:order-2 relative">
-                        <div className="relative p-2 md:p-6 mb-12 lg:mb-0">
-                            <InteractiveMap
-                                points={ROADMAP_POINTS}
-                                activePointId={activeId}
-                                onPointClick={setActiveId}
-                            />
-                        </div>
-                    </div>
-
+                    ))}
                 </div>
             </div>
         </section>

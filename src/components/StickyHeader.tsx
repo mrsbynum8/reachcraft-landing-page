@@ -33,7 +33,7 @@ export function StickyHeader({ onOpenBooking }: StickyHeaderProps) {
                         {/* Logo */}
                         <div className="flex items-center gap-3">
                             <img
-                                src="/RCALogo Version2 White.svg"
+                                src="/RCALogoVersion3-white.png"
                                 alt="ReachCraft"
                                 className="h-10 w-auto object-contain"
                             />

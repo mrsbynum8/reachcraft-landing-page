@@ -58,15 +58,15 @@ const PointMarker = ({ point, isActive, onClick }: { point: RoadmapPoint; isActi
 
             {/* Label - Dynamic Alignment */}
             <div className={cn(
-                "absolute top-full -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 mt-2 md:mt-0 px-4 py-2 rounded-lg border text-xs md:text-sm font-bold whitespace-nowrap transition-all duration-300 z-30",
+                "absolute top-1/2 -translate-y-1/2 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border text-[10px] md:text-sm font-bold whitespace-nowrap transition-all duration-300 z-30",
                 // Base styling
                 isActive
                     ? "bg-[#0D1321] border-[#D37B07] text-[#D37B07] shadow-[0_0_20px_rgba(211,123,7,0.4)] scale-110"
                     : "bg-[#0D1321] border-white/10 text-[#93A4AF] group-hover:border-white/30",
-                // Alignment Logic
+                // Alignment Logic (Works on mobile and desktop)
                 isLeftAligned
-                    ? "left-1/2 md:right-full md:left-auto md:-translate-x-4" // Left aligned (right of label attached to button)
-                    : "left-1/2 md:left-full md:translate-x-4" // Right aligned (default)
+                    ? "right-full mr-3" // Shows to the left of the pin
+                    : "left-full ml-3"  // Shows to the right of the pin
             )}>
                 {point.label}
             </div>
@@ -76,8 +76,8 @@ const PointMarker = ({ point, isActive, onClick }: { point: RoadmapPoint; isActi
 
 export const InteractiveMap = ({ points, activePointId, onPointClick, className }: InteractiveMapProps) => {
     return (
-        <div className={cn("relative w-full aspect-square md:aspect-[4/3] overflow-hidden", className)}>
-            {/* Background Map Image - Full Visibility for 3D Map */}
+        <div className={cn("relative w-full aspect-square md:aspect-[4/3]", className)}>
+            {/* Background Map Image - Contained in its own overflow-hidden div */}
             <div
                 className="absolute inset-0 flex items-center justify-center"
             >
@@ -89,6 +89,8 @@ export const InteractiveMap = ({ points, activePointId, onPointClick, className 
                     className="w-full h-full object-contain scale-125 md:scale-110"
                 />
             </div>
+
+            {/* Interactive Points - Now free to overflow the container edges */}
 
             {/* Interactive Points */}
             {points.map((point) => (

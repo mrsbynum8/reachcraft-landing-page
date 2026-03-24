@@ -4,31 +4,31 @@ import { ArrowLeft, ArrowRight, Sparkles, Search, BarChart3, Clock, DollarSign }
 
 const findings = [
     {
-        title: "The Hidden Channel",
-        description: "Marketing budget allocated to a channel that analytics reported as the #2 revenue driver. Forensic data extraction revealed it was producing zero qualified pipeline. Budget reallocated.",
-        outcome: "Cost recovered within 60 days.",
+        title: "The Dashboard Lie",
+        description: "Leadership believed conversion was a messaging problem because that is what the CRM dashboard reported. We bypassed the dashboard and analyzed seven months of raw system logs. The truth: 68% of inbound calls never reached a human.",
+        outcome: "System corrected. Modeled annual recoverable revenue: $155,000 to $310,000.",
         icon: Search,
         color: "#D37B07"
     },
     {
-        title: "The Invisible Handoff",
-        description: "Sales pipeline showed a 22% close rate. Forensic staff interviews revealed that 40% of qualified leads were never contacted due to a CRM routing gap. Not a performance problem.",
-        outcome: "A systems problem.",
+        title: "The Capacity Illusion",
+        description: "Operations requested headcount expansion to manage workload. We forensically mapped daily workflows to separate actual clinical work from system-induced friction. The constraint was not people; it was invisible architecture failing the people.",
+        outcome: "Architecture corrected. 7 hours of manual data entry permanently eliminated per week.",
         icon: BarChart3,
         color: "#3B82F6"
     },
     {
-        title: "The Manual Ceiling",
-        description: "Operations team logging 60+ hours per week. Forensic task audit revealed 35% of that time spent on work that AI systems could own entirely. No headcount change.",
-        outcome: "Capacity unlocked.",
-        icon: Clock,
+        title: "The Incentive Misalignment",
+        description: "We do not just audit software; we audit the humans operating it. Staff interviews revealed front-line coordinators were quietly screening out leads marketing paid to generate, protecting their own time to survive their day. Leadership's growth goals and staff survival incentives were in direct conflict.",
+        outcome: "Incentives realigned. Only pre-sold patients reached the desk.",
+        icon: DollarSign,
         color: "#10B981"
     },
     {
-        title: "The Buried Revenue",
-        description: "Existing client accounts contained upsell and cross-sell opportunities that no current report surfaced. Forensic data mapping identified recoverable revenue.",
-        outcome: "Representing 12% of current top line.",
-        icon: DollarSign,
+        title: "The Integration Trap",
+        description: "Every clinic believes their EMR limits what is possible, and IT vendors exploit this by quoting massive custom builds. Our architectural review identified the exact point of least resistance to secure after-hours demand without paying the integration ransom.",
+        outcome: "Capability secured. Break-even at 8 recovered patients.",
+        icon: Clock,
         color: "#8B5CF6"
     },
 ];
@@ -98,10 +98,10 @@ export function PremiumTestimonials() {
     };
 
     return (
-        <section id="findings" className="relative py-32 bg-[#0D1321] text-[#FFFAF1] overflow-hidden">
+        <section id="findings" className="relative pt-4 pb-4 md:pt-8 md:pb-16 bg-[#0D1321] text-[#FFFAF1] overflow-hidden">
             <div className="relative z-10 max-w-7xl mx-auto px-6">
                 {/* Header */}
-                <div className="max-w-4xl mx-auto text-center mb-20">
+                <div className="max-w-4xl mx-auto text-center mb-8">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D37B07]/10 border border-[#D37B07]/20 text-[#D37B07] text-xs font-bold uppercase tracking-widest mb-6">
                         <Sparkles className="h-3 w-3" />
                         <span>What Becomes Visible</span>
@@ -117,8 +117,8 @@ export function PremiumTestimonials() {
                 </div>
 
                 {/* Carousel Card */}
-                <div className="relative max-w-5xl mx-auto mb-16">
-                    <div className="relative h-[480px] md:h-[400px]">
+                <div className="relative max-w-5xl mx-auto mb-8">
+                    <div className="relative h-[520px] md:h-[400px]">
                         <AnimatePresence initial={false} custom={direction} mode="wait">
                             <motion.div
                                 key={currentIndex}
@@ -163,8 +163,8 @@ export function PremiumTestimonials() {
                                             <div className="pt-8 border-t border-[#FFFAF1]/5">
                                                 <div className="flex items-center gap-3">
                                                     <div className="w-2 h-2 rounded-full bg-[#D37B07] shadow-[0_0_10px_rgba(211,123,7,0.8)]" />
-                                                    <span className="text-[#D37B07] font-black text-sm uppercase tracking-widest">
-                                                        Outcome: {findings[currentIndex].outcome}
+                                                    <span className="text-[#D37B07] font-bold text-sm italic tracking-wide">
+                                                        <i>{findings[currentIndex].outcome}</i>
                                                     </span>
                                                 </div>
                                             </div>
