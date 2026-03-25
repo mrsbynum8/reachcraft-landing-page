@@ -42,7 +42,7 @@ export function PremiumTestimonials() {
         const timer = setInterval(() => {
             setDirection(1);
             setCurrentIndex((prev) => (prev + 1) % findings.length);
-        }, 8000);
+        }, 13000);
 
         return () => clearInterval(timer);
     }, []);
