@@ -33,14 +33,14 @@ export function StickyHeader({ onOpenBooking }: StickyHeaderProps) {
                         {/* Logo */}
                         <div className="flex items-center gap-3">
                             <img
-                                src="/RCALogoVersion3-white.png"
-                                alt="ReachCraft"
+                                src={`${import.meta.env.BASE_URL}RCALogoVersion3-white.png`}
+                                alt="ReachCraft Logo"
                                 className="h-10 w-auto object-contain"
                             />
                         </div>
 
                         {/* CTA */}
-                        <Button 
+                        <Button
                             onClick={onOpenBooking}
                             size="sm" 
                             className="rounded-full bg-[#D37B07] hover:bg-[#E8920F] text-[#0D1321] font-bold px-5 border-none"

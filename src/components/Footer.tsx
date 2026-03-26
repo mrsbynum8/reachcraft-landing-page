@@ -8,8 +8,8 @@ export function Footer() {
                     {/* Logo - Left */}
                     <div className="flex-1 flex justify-start">
                         <img
-                            src="/RCALogoVersion3-white.png"
-                            alt="ReachCraft"
+                            src={`${import.meta.env.BASE_URL}RCALogoVersion3-white.png`}
+                            alt="ReachCraft Logo"
                             className="h-10 w-auto object-contain"
                         />
                     </div>
