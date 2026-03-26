@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:diagnosis": "vite build --base=/diagnosis/ --outDir=dist-diagnosis",
+    "build:diagnosis": "vite build --base=./ --outDir=dist-diagnosis",
     "preview": "vite preview"
   },
   "dependencies": {
