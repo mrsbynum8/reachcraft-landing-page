@@ -65,8 +65,8 @@ const PointMarker = ({ point, isActive, onClick }: { point: RoadmapPoint; isActi
                     : "bg-[#0D1321] border-white/10 text-[#93A4AF] group-hover:border-white/30",
                 // Alignment Logic
                 isLeftAligned
-                    ? "right-full mr-2 md:mr-3 w-[76px] sm:w-[90px] md:w-auto text-right md:text-left top-1/2 -translate-y-1/2" 
-                    : "left-full ml-2 md:ml-3 w-[76px] sm:w-[90px] md:w-auto text-left top-1/2 -translate-y-1/2"
+                    ? "right-full mr-2 md:mr-3 w-[76px] sm:w-[90px] md:w-auto text-center top-1/2 -translate-y-1/2" 
+                    : "left-full ml-2 md:ml-3 w-[76px] sm:w-[90px] md:w-auto text-center top-1/2 -translate-y-1/2"
             )}>
                 {point.label}
             </div>
