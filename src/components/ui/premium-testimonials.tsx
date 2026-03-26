@@ -118,7 +118,7 @@ export function PremiumTestimonials() {
 
                 {/* Carousel Card */}
                 <div className="relative max-w-5xl mx-auto mb-8">
-                    <div className="relative h-[520px] md:h-[400px]">
+                    <div className="relative h-[600px] md:h-[400px]">
                         <AnimatePresence initial={false} custom={direction} mode="wait">
                             <motion.div
                                 key={currentIndex}
@@ -133,13 +133,13 @@ export function PremiumTestimonials() {
                                 }}
                                 className="absolute inset-0"
                             >
-                                <div className="relative h-full bg-[#1A233B] rounded-3xl border border-[#FFFAF1]/10 p-8 md:p-14 overflow-hidden group shadow-xl">
+                                <div className="relative h-full bg-[#1A233B] rounded-3xl border border-[#FFFAF1]/10 p-6 md:p-14 overflow-hidden group shadow-xl">
                                     {/* Background Gradient */}
                                     <div
                                         className="absolute inset-0 opacity-20 transition-opacity duration-500 group-hover:opacity-30 pointer-events-none"
                                         style={{ background: `radial-gradient(circle at top right, ${findings[currentIndex].color}, transparent 70%)` }}
                                     />
-                                    <div className="relative z-10 h-full flex flex-col md:flex-row items-start md:items-center gap-10">
+                                    <div className="relative z-10 h-full flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10">
                                         {/* Icon Space */}
                                         <div className="flex-shrink-0">
                                             <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-[#D37B07]/10 border border-[#D37B07]/20 flex items-center justify-center shadow-lg">
@@ -152,11 +152,11 @@ export function PremiumTestimonials() {
 
                                         {/* Content Area */}
                                         <div className="flex-1">
-                                            <h3 className="font-display text-3xl md:text-4xl font-bold text-[#FFFAF1] mb-6 tracking-tight">
+                                            <h3 className="font-display text-2xl md:text-4xl font-bold text-[#FFFAF1] mb-4 md:mb-6 tracking-tight">
                                                 {findings[currentIndex].title}
                                             </h3>
                                             
-                                            <p className="text-xl md:text-2xl text-[#93A4AF] leading-relaxed mb-10 font-normal">
+                                            <p className="text-lg md:text-2xl text-[#93A4AF] leading-relaxed mb-6 md:mb-10 font-normal">
                                                 {findings[currentIndex].description}
                                             </p>
 
