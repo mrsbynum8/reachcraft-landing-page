@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "build": "vite build",
     "build:diagnosis": "vite build --base=/diagnosis/ --outDir=dist-diagnosis",
     "preview": "vite preview"
   },
