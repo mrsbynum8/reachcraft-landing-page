@@ -58,15 +58,15 @@ const PointMarker = ({ point, isActive, onClick }: { point: RoadmapPoint; isActi
 
             {/* Label - Dynamic Alignment */}
             <div className={cn(
-                "absolute top-1/2 -translate-y-1/2 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border text-[10px] md:text-sm font-bold whitespace-nowrap transition-all duration-300 z-30",
+                "absolute px-3 py-1 md:px-4 md:py-2 rounded-lg border text-[11px] md:text-sm font-bold whitespace-nowrap transition-all duration-300 z-30",
                 // Base styling
                 isActive
-                    ? "bg-[#0D1321] border-[#D37B07] text-[#D37B07] shadow-[0_0_20px_rgba(211,123,7,0.4)] scale-110"
+                    ? "bg-[#0D1321] border-[#D37B07] text-[#D37B07] shadow-[0_0_20px_rgba(211,123,7,0.4)] md:scale-110 scale-105"
                     : "bg-[#0D1321] border-white/10 text-[#93A4AF] group-hover:border-white/30",
-                // Alignment Logic (Works on mobile and desktop)
+                // Alignment Logic
                 isLeftAligned
-                    ? "right-full mr-3" // Shows to the left of the pin
-                    : "left-full ml-3"  // Shows to the right of the pin
+                    ? "top-full left-1/2 -translate-x-1/2 mt-2 md:mt-0 md:top-1/2 md:-translate-y-1/2 md:-translate-x-0 md:left-auto md:right-full md:mr-3" 
+                    : "bottom-full left-1/2 -translate-x-1/2 mb-2 md:mb-0 md:top-1/2 md:-translate-y-1/2 md:-translate-x-0 md:bottom-auto md:left-full md:ml-3"
             )}>
                 {point.label}
             </div>
